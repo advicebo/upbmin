@@ -1,0 +1,362 @@
+/*--------------------------------------------------------------------------------------------
+											CONFIGURACION
+----------------------------------------------------------------------------------------------*/
+*{
+
+	font-family: "Open Sans";
+	font-weight: 300;
+}
+body, html{
+	height: 100%; width: 100%;
+	margin: 0; padding: 0;
+}
+.main{
+	margin: 0 auto;
+	width: 80%;
+	height: 100%;
+}
+/*--------------------------------------------------------------------------------------------
+											CABECERA
+----------------------------------------------------------------------------------------------*/
+
+header{
+	height: auto;
+	width: 100%;
+}
+
+/*Menu de Navegacion*/
+header #menu{
+	height: 95px;
+	margin: 0 auto;
+	width: 100%;
+}
+header #menu #logo{
+	height: 100%;
+	float: left;
+	margin-left: 50px;
+	width: 200px;
+}
+header #menu #logo span{ display: none; }
+
+
+header #menu nav{
+	height: 100%;
+	margin-right: 50px;
+	float: right;
+}
+
+header #menu nav ul{ 
+	list-style: none; 
+	height: 80%; 
+	padding: 0; 
+	margin: 0;
+}
+
+header #menu nav ul li{
+	display: block;
+	float: right;
+	height: 100%;
+	margin-top: 8px;
+}
+/*Tools*/
+header #faculty{
+	display: block;w
+	width: 100%;
+	/*height: 200px;*/
+	background-image: url(../images/gray.png);
+}
+header #faculty .main{
+	height: 0;
+}
+header #faculty .main .section{
+	width: 270px;
+	height: 100%;
+	float:left;
+}
+/*Slider*/
+header #slider{
+	background-size: 100% 100%;
+	height: 550px;
+	width: 100%;
+}
+
+header #slider .slides{
+}
+header .carousel{
+	position: relative;
+}
+header .carousel .slides{
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	display: block;
+	width: 100%;
+}
+
+header .carousel .slides .slide{
+
+}
+
+header .carousel .slides .slide .description{
+	height: 350px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 450px;
+}
+
+header #slider #panel_control{
+	background: rgba(25,56,91,0.9);	
+	height: 120px;
+	width: 70px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	z-index: 200;
+}
+header #slider #zocial{
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
+	height: 65px;
+	width: 218px;
+	z-index: 300;
+}
+header #slider #zocial img{
+	display: block;
+	width: 29%;
+	height: 100%;
+	float: left;
+}
+/*--------------------------------------------------------------------------------------------
+											CONTENIDO
+----------------------------------------------------------------------------------------------*/
+section, section #feedback, section #calendar, section #news, section #staff{
+	width: 100%;
+	position: relative;
+}
+
+section #calendar .section{
+	float: right; 
+	width: 31.5%;
+	height: 80%;
+	margin-top:	5%;
+}
+
+section #calendar #genex{
+	height: 100%;
+	background: black;
+	position: absolute;
+	right: 0;
+	top: 0;
+	/*width: 500px;*/
+	width: 0;
+	z-index: 300;
+}
+
+section #calendar .section .date{
+	display: block;
+	height: 70%;
+	float: left;
+	margin-top: 5%;		
+	margin-left: 8%;
+	width: 40%;
+}
+section #calendar .section p{
+	background: rgba(25,56,91,0.5);
+	float: left;
+	color: white;
+	display: block;
+	margin-top: 5%;		
+	margin-left: 2%;
+	height: 63%;
+	width: 42%;
+}
+section #calendar .section:first-child{
+	
+}
+section{
+	height: auto;
+}
+
+section #staff{
+	height: 105px;
+}
+
+	section #staff .main{
+		width: 60%;
+	}
+	section #staff .feed{
+		height: 100%;
+		width: 20%;
+		float: left;
+	}
+
+section #feedback{
+	height: 500px;
+}
+
+section #feedback #publications, section #feedback #navigation{
+	height: 100%;
+	float: left;
+}
+
+section #feedback #publications #grid{
+	margin: 25px 0 0 80px;
+	padding: 40px 30px;
+	/*border: 1px solid black;*/
+	width: 860px;
+}
+
+section #feedback #publications{
+	/*background: black;*/
+	width: 78%;
+}
+
+section #feedback #navigation{
+	/*background: white;*/
+	width: 22%;
+}
+section #calendar{
+	height: 340px;
+}
+
+section #news{
+	height: 650px;
+	padding: 50px 0 50px 0;
+}
+section #news #social_coments, section #news #posts{
+	height: 100%;
+ 	display: block;
+ 	float: left;
+}
+section #news #social_coments{
+	/*width: 350px;*/
+	width: 28%;
+	margin-right: 2%;
+	margin-left: 2%;
+}
+
+#social_coments .desc{
+	display: block;
+	background: #1d1d1d;
+	height: 50px;
+	width: 100%;
+}
+
+#social_coments #elect{
+	display: block;
+	float: left;
+	height: 100px;
+	width: 100%;
+}
+#social_coments #coments{
+	float: left;
+	background: gray;
+	height:490px;
+	width: 100%;
+	overflow: auto;
+}
+section #news #posts{
+	width: 67%;
+	/*background: white;*/
+}
+
+section #calendar .title{
+	/*background: white;*/
+	width: 100%;
+}
+
+section #news #posts #panel, section #news #posts #list {
+	height: 100%;
+	float: left;
+}
+
+section #news #posts #panel{
+	width: 70%;
+}
+ section #news #posts #list{
+	margin-left: 1.8%;
+ }
+ 	
+section #news #posts #panel #figure{
+	height: 74%;
+	position: relative;
+}
+
+section #news #posts #panel #figure img{
+	height: 100%;
+	margin: 0;
+	width: 100%;
+	margin: 0 auto;
+	display: block;
+}
+
+section #news #posts #panel p{
+	margin: 0;
+	height: 20%;
+	width: 90%;
+}
+
+section #news #posts #list{
+	width: 26%;
+	overflow: hidden;
+}
+
+section #news #posts #list .post{
+	height: 210px;
+	margin-bottom: 12px;
+	position: relative;
+	float: right;
+	width: 220px;
+}
+
+/*--------------------------------------------------------------------------------------------
+											PIE DE PAGINA
+----------------------------------------------------------------------------------------------*/
+footer{
+	width: 100%;
+	height: auto;
+}
+
+footer #zocial, footer #credits{
+	width: 100%;
+}
+footer #zocial{
+	height: 300px;
+
+}
+
+footer #credits{
+	background: black;
+	height: 50px;	
+}
+
+footer #zocial #logo, footer #zocial #dirs, footer #zocial #social{
+	height: 100%;
+	float: left;
+}
+
+footer #zocial #logo{
+	background-image: url(../images/logo2.png);
+	background-repeat: no-repeat;
+	background-size: 70% 40%;
+	background-position: center center;
+	width: 30%;
+
+}
+
+footer #zocial #dirs{
+	width: 40%;
+}
+
+footer #zocial #social{
+	width: 30%;
+}
+
+footer #zocial #dirs ul{
+	list-style: none;
+	display: block;
+	height: 50%;
+	width: 100%;
+}

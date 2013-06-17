@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset=utf-8 />
+  <title>Coverflow using 2D/3D transforms depending on browser</title>
+  <link href="../common.css" rel="stylesheet">
+  <link href="cards.css" rel="stylesheet">
+  <script src="../js/jquery-1.5b1.js"></script>
+  <script src="../js/modernizr-1.6.min.js"></script>
+  <script src="../js/browser_detect.js"></script>
+  <script src="jquery.transform/jquery.transform.js"></script>
+  <style>
+    /* 3D capable browser */
+    .csstransforms3d .card{ margin: 10px -110px; }
+    .csstransforms3d .card.left {
+      -moz-transform: perspective(500) rotateY(65deg) scale(0.65);
+      -webkit-transform: perspective(500) rotateY(65deg) scale(0.65);
+      -o-transform: perspective(500) rotateY(65deg) scale(0.65);
+      -ms-transform: perspective(500) rotateY(65deg) scale(0.65);
+      -khtml-transform: perspective(500) rotateY(65deg) scale(0.65);
+      transform: perspective(500) rotateY(65deg) scale(0.65);
+    }
+    .csstransforms3d .card.right {
+      -moz-transform: perspective(500) rotateY(-65deg) scale(0.65);
+      -webkit-transform: perspective(500) rotateY(-65deg) scale(0.65);
+      -o-transform: perspective(500) rotateY(-65deg) scale(0.65);
+      -ms-transform: perspective(500) rotateY(-65deg) scale(0.65);
+      -khtml-transform: perspective(500) rotateY(-65deg) scale(0.65);
+      transform: perspective(500) rotateY(-65deg) scale(0.65);
+    }
+    .csstransforms3d .card.center{ margin: 10px 5px; }
+    /* No 3D capable browser */
+    .no-csstransforms3d .card.left {
+      -moz-transform:    matrix(0.500, -0.333, 0.000, 0.667, 0,0);
+      -webkit-transform: matrix(0.500, -0.333, 0.000, 0.667, 0,0);
+      -o-transform:      matrix(0.500, -0.333, 0.000, 0.667, 0,0);
+      transform:         matrix(0.500, -0.333, 0.000, 0.667, 0,0);
+    }
+    .no-csstransforms3d .card.right {
+      -webkit-transform:  matrix(0.500, 0.333, 0.000, 0.667, 0,0);
+      -moz-transform:     matrix(0.500, 0.333, 0.000, 0.667, 0,0);
+      -o-transform:       matrix(0.500, 0.333, 0.000, 0.667, 0,0);
+      transform:          matrix(0.500, 0.333, 0.000, 0.667, 0,0);
+    }
+    .no-csstransforms3d .card.center { margin: 10px 15px; }
+  </style>
+  <script>
+    function animateWithCSS3(card, step){
+      $(card).prevAll(".card").addClass('left').removeClass('right center first');
+      $(card).nextAll(".card").addClass('right').removeClass('left center first');
+      $(card).prev(".card").addClass('first');
+      $(card).next(".card").addClass('first');
+      $(card).removeClass('left right').addClass('center');
+      $(card).closest("#slider").css('margin-left', ($(this).prevAll(".card").length*step)+'px');
+    }
+    $(function(){
+      // PURE CSS3 TRANSITIONS
+      $(".csstransitions.csstransforms3d .card").click(function(){ animateWithCSS3(this,-80) });
+      if (BrowserDetect.browser!='Firefox'){
+        $(".csstransitions.csstransforms.no-csstransforms3d .card").click(function(){ animateWithCSS3(this,-135) });
+      } else { // FF4 suports transitions, but right-now (beta9), not on transform property, so we need some JS.
+        $(".csstransitions.csstransforms.no-csstransforms3d .card").click(function(){
+          alert("Still thinking on a solution");
+        });
+      }
+    });
+  </script>
+</head>
+<body>
+<a href="http://github.com/cibernox/web_experiments"><img style="position: absolute; top: 0; left: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+  <div id="main" class="rounded-border wrapper">
+    <div id="demo">
+      <div id="slider">
+        <div class="card rounded-border center" style="background: #f6f6f6 url(coverflow_images/dreamglow.jpg);"></div>
+        <div class="card rounded-border right first" style="background: #f6f6f6 url(coverflow_images/dreamglow_flower.jpg);"></div>
+        <div class="card rounded-border right" style="background: #f6f6f6 url(coverflow_images/OliBac.jpg);"></div>
+        <div class="card rounded-border right" style="background: #f6f6f6 url(coverflow_images/OliBac_flower.jpg);"></div>
+        <div class="card rounded-border right" style="background: #f6f6f6 url(coverflow_images/PinkSherbertPhotography_beadsNheart.jpg);"></div>
+        <div class="card rounded-border right" style="background: #f6f6f6 url(coverflow_images/PinkSherbertPhotography_candy.jpg);"></div>
+        <div class="card rounded-border right" style="background: #f6f6f6 url(coverflow_images/PinkSherbetPhotography.jpg);"></div>
+        <div class="card rounded-border right" style="background: #f6f6f6 url(coverflow_images/ThomasShahan.jpg);"></div>
+        <div class="card rounded-border right" style="background: #f6f6f6 url(coverflow_images/ViaMoi.jpg);"></div>
+      </div>
+    </div>
+    <div class="right-text">All images are Creative Common</div>
+  </div>
+  <div id="credits" class="rounded-border wrapper">
+    Demo by Miguel Camba | <a href="mailto:miguel.camba@gmail.com">Email</a>
+    | <a href="http://github.com/cibernox">GitHub</a>
+    | <a href="http://twitter.com/MiguelCamba">Twitter</a> | <a href="http://es.linkedin.com/in/miguelcamba">LinkedIn</a>
+    | <a href="http://masquerailes.wordpress.com/">Blog</a>
+  </div>
+</body>
+</html>

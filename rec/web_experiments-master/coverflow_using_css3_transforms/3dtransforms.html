@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset=utf-8 />
+  <title>Coverflow using css 2D transforms</title>
+  <link href="../common.css" rel="stylesheet">
+  <link href="cards.css" rel="stylesheet">
+  <script src="../js/jquery-1.5b1.js"></script>
+  <script src="../js/modernizr-1.6.min.js"></script>
+  <style>
+    .card{ margin: 10px -110px; }
+    .card.left {
+      -moz-transform: perspective(500) rotateY(65deg) scale(0.65);
+      -webkit-transform: perspective(500) rotateY(65deg) scale(0.65);
+      -o-transform: perspective(500) rotateY(65deg) scale(0.65);
+      -ms-transform: perspective(500) rotateY(65deg) scale(0.65);
+      -khtml-transform: perspective(500) rotateY(65deg) scale(0.65);
+      transform: perspective(500) rotateY(65deg) scale(0.65);
+    }
+    .card.right {
+      -moz-transform: perspective(500) rotateY(-65deg) scale(0.65);
+      -webkit-transform: perspective(500) rotateY(-65deg) scale(0.65);
+      -o-transform: perspective(500) rotateY(-65deg) scale(0.65);
+      -ms-transform: perspective(500) rotateY(-65deg) scale(0.65);
+      -khtml-transform: perspective(500) rotateY(-65deg) scale(0.65);
+      transform: perspective(500) rotateY(-65deg) scale(0.65);
+    }
+    .card.center{ margin: 10px 5px; }
+  </style>
+  <script>
+    $(function(){
+      $(".csstransforms3d .card").click(function(){
+        $(this).prevAll(".card").addClass('left').removeClass('right center first');
+        $(this).nextAll(".card").addClass('right').removeClass('left center first');
+        $(this).prev(".card").addClass('first');
+        $(this).next(".card").addClass('first');
+        $(this).removeClass('left right').addClass('center');
+        $(this).closest("#slider").css('margin-left', ($(this).prevAll(".card").length*-80)+'px');
+      });
+    });
+  </script>
+</head>
+<body>
+<a href="http://github.com/cibernox/web_experiments"><img style="position: absolute; top: 0; left: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+  <div id="main" class="rounded-border wrapper">
+    <div id="demo">
+      <div id="slider">
+        <div class="card rounded-border center" style="background: #f6f6f6 url(coverflow_images/dreamglow.jpg);"></div>
+        <div class="card rounded-border right first" style="background: #f6f6f6 url(coverflow_images/dreamglow_flower.jpg);"></div>
+        <div class="card rounded-border right" style="background: #f6f6f6 url(coverflow_images/OliBac.jpg);"></div>
+        <div class="card rounded-border right" style="background: #f6f6f6 url(coverflow_images/OliBac_flower.jpg);"></div>
+        <div class="card rounded-border right" style="background: #f6f6f6 url(coverflow_images/PinkSherbertPhotography_beadsNheart.jpg);"></div>
+        <div class="card rounded-border right" style="background: #f6f6f6 url(coverflow_images/PinkSherbertPhotography_candy.jpg);"></div>
+        <div class="card rounded-border right" style="background: #f6f6f6 url(coverflow_images/PinkSherbetPhotography.jpg);"></div>
+        <div class="card rounded-border right" style="background: #f6f6f6 url(coverflow_images/ThomasShahan.jpg);"></div>
+        <div class="card rounded-border right" style="background: #f6f6f6 url(coverflow_images/ViaMoi.jpg);"></div>
+      </div>
+    </div>
+    <div class="right-text">All images are Creative Common</div>
+  </div>
+  <div id="credits" class="rounded-border wrapper">
+    Demo by Miguel Camba | <a href="mailto:miguel.camba@gmail.com">Email</a>
+    | <a href="http://github.com/cibernox">GitHub</a>
+    | <a href="http://twitter.com/MiguelCamba">Twitter</a> | <a href="http://es.linkedin.com/in/miguelcamba">LinkedIn</a>
+    | <a href="http://masquerailes.wordpress.com/">Blog</a>
+  </div>
+</body>
+</html>
